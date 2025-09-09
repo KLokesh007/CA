@@ -1,0 +1,15 @@
+'use client'
+import AboutSection from "@/components/About/layout"
+import HomeSection from "@/components/Home/layout"
+import ServicesSection from "@/components/Services/layout"
+import React from "react"
+
+export default function Home() {
+  return (
+    <main>
+      <HomeSection />
+      <AboutSection />
+      <ServicesSection />
+    </main>
+  )
+}
