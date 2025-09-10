@@ -134,7 +134,7 @@ html,
 body {
   height: 100%;
   /* Set dark gradient background to match component design */
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #1a1a1a);
   color: white;
   font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;

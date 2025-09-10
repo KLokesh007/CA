@@ -2,6 +2,7 @@
 import AboutSection from "@/components/About/layout"
 import HomeSection from "@/components/Home/layout"
 import ServicesSection from "@/components/Services/layout"
+import WorkSection from "@/components/Work/layout"
 import React from "react"
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <HomeSection />
       <AboutSection />
       <ServicesSection />
+      <WorkSection/>
     </main>
   )
 }
