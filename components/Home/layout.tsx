@@ -78,7 +78,14 @@ export default function HomeSection() {
               I’m a Chartered Accountant with 7+ years of experience helping startups and fast-growing companies achieve financial transparency, compliance, and growth.
             </p>
             <div className="cta-buttons">
-              <button className="primary-btn">Connect with me</button>
+              <button
+                className="connect-btn"
+                onClick={() => {
+                  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Connect With Me
+              </button>
               <button className="secondary-btn">My resume</button>
             </div>
           </div>

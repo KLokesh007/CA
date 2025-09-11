@@ -43,6 +43,7 @@ const ContactSection = () => {
       .then(() => {
         setFormMessage({ type: "success", text: "✅ Message sent successfully!" })
         setFormData({ name: "", email: "", message: "" })
+        setTimeout(() => setFormMessage(null), 5000) // Clear message after 5 seconds
       })
       .catch(() => {
         setFormMessage({ type: "error", text: "❌ Failed to send message. Please try again." })
