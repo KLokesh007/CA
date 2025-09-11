@@ -1,5 +1,6 @@
 'use client'
 import AboutSection from "@/components/About/layout"
+import ContactSection from "@/components/Contact/contactsec"
 import HomeSection from "@/components/Home/layout"
 import ServicesSection from "@/components/Services/layout"
 import WorkSection from "@/components/Work/layout"
@@ -12,6 +13,7 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <WorkSection/>
+      <ContactSection/>
     </main>
   )
 }
