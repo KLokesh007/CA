@@ -5,7 +5,7 @@ const WorkSection = () => {
     {
       id: 1,
       title: "Manufacturing",
-      image: "/manufacture.jpeg",
+      image: "/manufacturing2.jpg",
       className: "project-card-large",
     },
     {
@@ -29,7 +29,7 @@ const WorkSection = () => {
     {
       id: 5,
       title: "Web3",
-      image: "/web3.jpeg",
+      image: "/web3.jpg",
       className: "project-card-medium",
     },
   ]
@@ -39,7 +39,7 @@ const WorkSection = () => {
       <div className="work-container">
         <div className="work-header">
           <h2 className="work-title">
-            My latest <span className="gradient-pill">work</span>
+            Industry <span className="gradient-pill">Exposure</span>
           </h2>
         </div>
 

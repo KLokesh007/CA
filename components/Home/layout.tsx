@@ -52,7 +52,14 @@ export default function HomeSection() {
               </li>
             </ul>
           </nav>
-          <button className="connect-btn">Connect With Me</button>
+          <button
+            className="connect-btn"
+            onClick={() => {
+              document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Connect With Me
+          </button>
         </div>
       </header>
 
@@ -76,7 +83,7 @@ export default function HomeSection() {
             </div>
           </div>
         </div>
-        <ScrollToTop/>
+        <ScrollToTop />
       </main>
     </div>
   )
