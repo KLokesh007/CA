@@ -70,17 +70,17 @@ export default function AboutSection() {
                 {/* Statistics Section */}
                 <div className="stats-section">
                     <div className="stat-item">
-                        <div className="stat-number gradient-text">20+</div>
+                        <div className="stat-number gradient-text">7+</div>
                         <div className="stat-label">YEARS OF EXPERIENCE</div>
                     </div>
                     <div className="stat-divider"></div>
                     <div className="stat-item">
-                        <div className="stat-number gradient-text">20+</div>
+                        <div className="stat-number gradient-text">10+</div>
                         <div className="stat-label">PROJECTS COMPLETED</div>
                     </div>
                     <div className="stat-divider"></div>
                     <div className="stat-item">
-                        <div className="stat-number gradient-text">25+</div>
+                        <div className="stat-number gradient-text">10+</div>
                         <div className="stat-label">HAPPY CLIENTS</div>
                     </div>
                 </div>

@@ -1,16 +1,24 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import emailjs from "emailjs-com"
 import "./contactsec.css"
 
 const ContactSection = () => {
+  const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   })
   const [newsletterEmail, setNewsletterEmail] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [formMessage, setFormMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
+
+  useEffect(() => {
+    setMounted(true) // ✅ Only render after client mounts
+  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -22,13 +30,28 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    setLoading(true)
+    setFormMessage(null)
+
+    emailjs
+      .send(
+        "service_v836ikv",   // 🔹 replace with your Service ID
+        "template_9zrk5os",  // 🔹 replace with your Template ID
+        formData,
+        "SXRMY_ZUUL-YtRdnJ"    // 🔹 replace with your Public Key
+      )
+      .then(() => {
+        setFormMessage({ type: "success", text: "✅ Message sent successfully!" })
+        setFormData({ name: "", email: "", message: "" })
+      })
+      .catch(() => {
+        setFormMessage({ type: "error", text: "❌ Failed to send message. Please try again." })
+      })
+      .finally(() => setLoading(false))
   }
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle newsletter subscription
     console.log("Newsletter subscription:", newsletterEmail)
   }
 
@@ -54,60 +77,15 @@ const ContactSection = () => {
 
             <div className="contact-details">
               <div className="contact-item">
-                <div className="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <polyline
-                      points="22,6 12,13 2,6"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
+                <div className="contact-icon">📧</div>
                 <span>services@cameenavenkatesh.co.in</span>
               </div>
-
               <div className="contact-item">
-                <div className="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M22 16.92V19.92C22 20.52 21.39 21 20.77 21C9.39 21 0 11.61 0 0.23C0 -0.39 0.48 -1 1.08 -1H4.08C4.68 -1 5.08 -0.39 5.08 0.23C5.08 2.23 5.48 4.23 6.28 6.03C6.48 6.43 6.38 6.93 6.08 7.23L4.08 9.23C5.88 12.83 9.17 16.12 12.77 17.92L14.77 15.92C15.07 15.62 15.57 15.52 15.97 15.72C17.77 16.52 19.77 16.92 21.77 16.92C22.39 16.92 22 17.32 22 17.92V16.92Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
+                <div className="contact-icon">📞</div>
                 <span>+91 7975789916</span>
               </div>
-
               <div className="contact-item">
-                <div className="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M21 10C21 17 12 23 12 23S3 17 3 10C3 5.03 7.03 1 12 1S21 5.03 21 10Z"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <circle
-                      cx="12"
-                      cy="10"
-                      r="3"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
+                <div className="contact-icon">📍</div>
                 <span>Bengaluru , India</span>
               </div>
             </div>
@@ -163,9 +141,16 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <button type="submit" className="submit-btn">
-                Submit now
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? "Sending..." : "Submit now"}
               </button>
+
+              {/* Feedback message */}
+              {formMessage && (
+                <p className={`form-message ${formMessage.type}`}>
+                  {formMessage.text}
+                </p>
+              )}
             </form>
           </div>
         </div>
@@ -183,14 +168,7 @@ const ContactSection = () => {
 
             <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
               <div className="newsletter-input-container">
-                <div className="newsletter-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M16 12C16 14.21 14.21 16 12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
+                <div className="newsletter-icon">✉️</div>
                 <input
                   type="email"
                   placeholder="Enter your email"
