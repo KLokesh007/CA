@@ -15,8 +15,8 @@ export default function HomeSection() {
     <div className="home-section">
       <header className="header">
         <div className="container">
-          <div className="logo" >
-            <h1 >Meena Venkatesh</h1>
+          <div className="logo">
+            <h1>Meena Venkatesh</h1>
           </div>
           <button className="hamburger-menu" onClick={toggleMenu}>
             <span></span>
@@ -55,7 +55,7 @@ export default function HomeSection() {
           <button
             className="connect-btn"
             onClick={() => {
-              document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+              document.getElementById("contact").scrollIntoView({ behavior: "smooth" })
             }}
           >
             Connect With Me
@@ -70,18 +70,18 @@ export default function HomeSection() {
               <img src="/meena.jpeg" alt="MEENA" />
             </div>
             <h1 className="main-title">
-
               <span className="gradient-text">{"I'm "} Meena Venkatesh</span>
               {", Chartered Accountant based in India."}
             </h1>
             <p className="description">
-              I’m a Chartered Accountant with 7+ years of experience helping startups and fast-growing companies achieve financial transparency, compliance, and growth.
+              I’m a Chartered Accountant with 7+ years of experience helping startups and fast-growing companies achieve
+              financial transparency, compliance, and growth.
             </p>
             <div className="cta-buttons">
               <button
                 className="connect-btn"
                 onClick={() => {
-                  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+                  document.getElementById("contact").scrollIntoView({ behavior: "smooth" })
                 }}
               >
                 Connect With Me
