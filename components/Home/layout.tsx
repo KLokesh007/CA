@@ -86,7 +86,14 @@ export default function HomeSection() {
               >
                 Connect With Me
               </button>
-              <button className="secondary-btn">My resume</button>
+              <a
+                href="https://calendly.com/meenavenkatesh17/quick-sync"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="secondary-btn"
+              >
+                Let's Sync
+              </a>
             </div>
           </div>
         </div>
