@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "MeenA - Chartered Accountant",
+  title: "Meena - Chartered Accountant",
   description: "Professional accounting services",
 }
 
